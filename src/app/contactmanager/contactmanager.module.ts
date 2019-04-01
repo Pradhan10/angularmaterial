@@ -12,7 +12,6 @@ import { MainContentComponent } from './components/main-content/main-content.com
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { UserService } from './services/user.service';
 import { HttpClientModule } from '@angular/common/http';
-import { NotesComponent } from './components/notes/notes.component';
 import { NewContactDialogComponent } from './components/new-contact-dialog/new-contact-dialog.component';
 
 const routes: Routes = [
@@ -43,8 +42,7 @@ const routes: Routes = [
     ContactmanagerAppComponent, 
     ToolbarComponent, 
     MainContentComponent, 
-    SidenavComponent, 
-    NotesComponent, 
+    SidenavComponent,
     NewContactDialogComponent
   ], 
   entryComponents: [
