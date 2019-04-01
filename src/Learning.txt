@@ -1,0 +1,74 @@
+Working with container presentation components :
+1 => Pass state from container -> Presentation using input properties
+2 => Communicate from presentation -> container using output properties
+3 => Set change detection policy to OnPush in presentation components
+4 => Consider cloning complex types
+5 => Use child routes as appropriate
+
+Difference between container-presentation and child routes ?
+
+What is changeDetectionStrategy ?
+=> Default => OnPush
+
+What changeDetectionStrategy.OnPush does ?
+  => Causes change detection to run when
+  1 : An input property reference changes
+  2 : An output property /EventEmitter or DOM event fires
+  3 : Async pipe receives and event
+  4 : Change detection is manually invoked via ChangeDetectorRef
+
+  => Benefits
+  1 : Performance
+  2 : Prevent the presentation component from updating state it sould get from container/parent
+
+Passing reference type vs value
+  => Reflect changes
+  If we pass anything by reference, changes to UI will not be reflected since ngOnChange will not fire.
+  ngOnChange will not fire if whole object is referencing same memory location, even if its internal properties have changed
+
+Ways to mitigate this issue?
+  => Cloning
+  => write a cloning service with deep copy.
+  => Use Immutable.js
+
+
+Note : toArray() "shallowly converts" the collection to an Array. Use toJS() to deeply convert the collection to an Array
+
+Component inheritance
+=> Used to share input and output properties of two one component into another
+
+Container retrieves state and presentation components render
+Leverage cloning/immutable data when appropriate
+Use component inheritance sparingly [only when it makes sense]
+
+COMPONENT COMMUNICATION [IMPORTANT]
+  1 : Understanding RxJS subjects
+  2 : Creating and using and event bus service
+  3 : Creating and useing an observable service
+  4 : Unsubscribing from observables
+
+When our components are in one level Parent-child relationship [Child does not has it's own children]
+We can use @Input ans @Output properties [Pretty straight forward]
+
+However what happens when we deeply nest components ?
+  => Event bus vs Observable service
+  Event bus :
+  1 : Mediator Pattern
+  2 : Angular service acts as a middle man between components
+  3 : Components don't know where data is coming from by default
+  4 : Loosely coupled
+  5 : Relies on subject/observable
+
+  Observable service :
+  1 : Observer pattern
+  2 : Angular service exposes observable direclty to components
+  3 : Component know where data is coming from
+  4 : Not as loosely coupled as event bus
+  5 : Relies on subject/observable.
+
+
+
+
+
+
+

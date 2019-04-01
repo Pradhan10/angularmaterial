@@ -37,7 +37,7 @@ export class UserService {
   }
 
   loadAll() {
-    const usersUrl = 'https://angular-material-api.azurewebsites.net/users';
+    const usersUrl = 'https://jsonplaceholder.typicode.com/users';
 
     return this.http.get<User[]>(usersUrl)
       .subscribe(data => {
