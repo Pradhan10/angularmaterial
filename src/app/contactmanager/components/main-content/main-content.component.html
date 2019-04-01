@@ -9,20 +9,27 @@
         <h2>{{ user.name }}</h2>
       </mat-card-title>
       <mat-card-subtitle>
-        Birthday {{ user.birthDate | date:'d LLLL' }}
+        Username :  {{ user.username }}
       </mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
       <mat-tab-group>
-        <mat-tab label="Bio">
+        <mat-tab label="Company Name">
           <p>
-            {{user.bio}}
+            {{user.company.name}}
           </p>
         </mat-tab>
-        <mat-tab label="Notes">
-          <app-notes [notes]="user.notes"></app-notes>
+        <mat-tab label="Company address">
+          <p>
+            {{user.address.street}}
+          </p>
         </mat-tab>
       </mat-tab-group>
     </mat-card-content>
+    <mat-card-footer>
+
+      {{user.website}}
+
+    </mat-card-footer>
   </mat-card>
 </div>
