@@ -3,7 +3,6 @@ import {Address} from "./address";
 
 export class User {
   id: number;
-  birthDate: Date;
   name: string;
   avatar: string;
   bio: string;
@@ -13,8 +12,6 @@ export class User {
   address: Address;
   website: string;
   company: Company;
-
-  notes: Note[] = [];
 }
 
 export interface Company {

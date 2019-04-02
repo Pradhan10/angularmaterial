@@ -157,13 +157,4 @@ describe('HttpClient testing', () => {
     req.flush(null);
   });
 
-  // Proves that verify in afterEach() really would catch error
-  // if test doesn't simulate the HTTP response.
-  //
-  // Must disable this test because can't catch an error in an afterEach().
-  // Uncomment if you want to confirm that afterEach() does the job.
-  // it('afterEach() should fail when HTTP response not simulated',() => {
-  //   // Sends request which is never handled by this test
-  //   httpClient.get('some/api').subscribe();
-  // });
 });

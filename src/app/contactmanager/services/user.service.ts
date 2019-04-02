@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { User } from '../models/user';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { Observable } from 'rxjs/Observable';
-import { resolve } from 'q';
+import {BehaviorSubject, Observable} from "rxjs";
+
 
 @Injectable()
 export class UserService {
 
+  readonly usersUrl = 'https://jsonplaceholder.typicode.com/users';
   private _users: BehaviorSubject<User[]>;
   
   private dataStore: {
@@ -37,9 +37,7 @@ export class UserService {
   }
 
   loadAll() {
-    const usersUrl = 'https://jsonplaceholder.typicode.com/users';
-
-    return this.http.get<User[]>(usersUrl)
+    return this.http.get<User[]>(this.usersUrl)
       .subscribe(data => {
         this.dataStore.users = data;
         this._users.next(Object.assign({}, this.dataStore).users);
