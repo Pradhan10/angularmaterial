@@ -4,8 +4,6 @@ import {getOneTestUser, getTestUsers} from "../models/testing/test-users";
 import {User} from "../models/user";
 import {HttpClientTestingModule, HttpTestingController} from "@angular/common/http/testing";
 import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
-import {of} from "rxjs/observable/of";
 
 
 describe('UserService (with spies)', () => {

@@ -9,7 +9,7 @@ describe('ContactManagerComponent', () => {
   let mockDomSanitizer: DomSanitizer;
   beforeEach(async(() => {
     mockMatIconRegistry = jasmine.createSpyObj('MatIconRegistry', ['addSvgIconSet']);
-    mockDomSanitizer = jasmine.createSpyObj('DomSanitizer', ['addSvgIconSet']);
+    mockDomSanitizer = jasmine.createSpyObj('DomSanitizer', ['bypassSecurityTrustResourceUrl']);
     testContactManagerComponent = new ContactmanagerAppComponent(mockMatIconRegistry, mockDomSanitizer);
   }));
   it('should create', function () {
